@@ -151,7 +151,7 @@ import { Picker } from 'emoji-mart-native'
 #### I18n
 
 ```js
-search: 'Search',
+search: 'Searchsss',
 notfound: 'No Emoji Found',
 categories: {
   search: 'Search Results',

@@ -116,6 +116,8 @@ export default class Anchors extends React.PureComponent {
         emojiProps,
         categoryEmojis,
         theme,
+        anchorsStyleWrapper,
+        anchorsStyle,
       } = this.props,
       {selected} = this.state
 
@@ -131,6 +133,7 @@ export default class Anchors extends React.PureComponent {
           style={[
             styles.anchors,
             theme === 'light' ? styles.anchorsLight : styles.anchorsDark,
+            anchorsStyleWrapper,
           ]}
         >
           {categories.map((category, i) => {
@@ -167,6 +170,7 @@ export default class Anchors extends React.PureComponent {
                       styles.anchorBar,
                       isSelected ? styles.anchorBarSelected : null,
                       {backgroundColor: color},
+                      anchorsStyle,
                     ]}
                   />
                 </View>

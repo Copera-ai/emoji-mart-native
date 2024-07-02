@@ -74,6 +74,7 @@ export default class Search extends React.PureComponent {
     emojiProps: PropTypes.object.isRequired,
     theme: PropTypes.oneOf(['light', 'dark']),
     fontSize: PropTypes.number,
+    searchInputStyle: PropTypes.object,
   }
 
   static defaultProps = {
@@ -131,6 +132,8 @@ export default class Search extends React.PureComponent {
     })
   }
 
+
+
   render() {
     const {
       i18n,
@@ -142,11 +145,11 @@ export default class Search extends React.PureComponent {
       emojiProps,
       theme,
       fontSize,
+      searchInputStyle
     } = this.props
     const iconSize = Math.round(fontSize * 1.6)
     const {searchTerm} = this.state
 
-    let background
 
     if (Platform.OS === 'android') {
       if (Platform.Version >= 21) {
@@ -159,7 +162,7 @@ export default class Search extends React.PureComponent {
     const searchContainerWithCloseButtonStyle = {
       paddingLeft: 5,
     }
-
+    
     return (
       <View
         style={[
@@ -168,6 +171,7 @@ export default class Search extends React.PureComponent {
             ? styles.searchContainerLight
             : styles.searchContainerDark,
           showCloseButton ? searchContainerWithCloseButtonStyle : null,
+          searchInputStyle,
         ]}
       >
         {showCloseButton ? (

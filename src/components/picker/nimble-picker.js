@@ -489,6 +489,9 @@ export default class NimblePicker extends React.PureComponent {
       skinEmoji,
       skinEmojiSize,
       fontSize,
+      searchInputStyle,
+      anchorsStyle,
+      anchorsStyleWrapper,
     } = this.props
 
     const emojiSizing = emojiSize + emojiMargin
@@ -525,6 +528,7 @@ export default class NimblePicker extends React.PureComponent {
           autoFocus={autoFocus}
           onPressClose={onPressClose}
           showSkinTones={showSkinTones}
+          searchInputStyle={searchInputStyle}
           skinsProps={{
             skin,
             onChange: this.handleSkinChange,
@@ -612,7 +616,7 @@ export default class NimblePicker extends React.PureComponent {
         </ScrollView>
 
         {showAnchors ? (
-          <View style={styles.emojiMartAnchors}>
+          <View style={[styles.emojiMartAnchors]}>
             <Anchors
               ref={this.setAnchorsRef}
               data={this.data}
@@ -621,6 +625,8 @@ export default class NimblePicker extends React.PureComponent {
               categories={this.categories}
               onAnchorPress={this.handleAnchorPress}
               categoryEmojis={this.categoryEmojis}
+              anchorsStyle={anchorsStyle}
+              anchorsStyleWrapper={anchorsStyleWrapper}
               emojiProps={{
                 native,
                 skin,
